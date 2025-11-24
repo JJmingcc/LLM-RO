@@ -121,10 +121,8 @@ Where: ξ ∈ [0,1], and Σ ξ ≤ Γ (uncertainty budget)
 
 ## 🔬 Research Highlights
 
-### Decision-Dependent Uncertainty
 
-Traditional robust optimization assumes **routing-independent uncertainty**. Our model captures:
-
+Our model captures:
 - **GPU tier impact on delays**: Higher compute power (H100 vs A6000) reduces delay uncertainty
 - **Precision impact on errors**: Quantization (INT4/INT8 vs FP16) increases error uncertainty
 - **Model-GPU pairing effects**: Optimal pairings reduce both delay and error variability
@@ -139,41 +137,6 @@ Traditional robust optimization assumes **routing-independent uncertainty**. Our
 
 > H100 provides **~36× speedup** over A6000, while INT8 quantization offers **1.5× additional** acceleration
 
----
-
-## 📈 Results & Visualizations
-
-### Sample Outputs
-
-The optimization produces comprehensive results including:
-
-```
-OPTIMIZATION RESULTS (OPTIMAL)
-================================================================================
-Total Cost: $2847.32
-Optimality Gap: 0.85%
---------------------------------------------------------------------------------
-
-COST COMPONENT BREAKDOWN
-================================================================================
-C1 - Resource Rental Cost:       $2145.67  ( 75.4%)
-C2 - Storage Cost:                $  87.23  (  3.1%)
-C3 - Robust Delay Penalty:        $ 412.89  ( 14.5%)
-C4 - Unmet Demand Penalty:        $ 201.53  (  7.0%)
-
-GPU ALLOCATION:
-  Llama-3.1-8B         on H100_80GB_INT8:  4 GPUs
-  Llama-3.2-3B         on A100_40GB_FP16:  2 GPUs
-  Llama-3.2-1B         on RTX_4090_INT8:   8 GPUs
-
-WORKLOAD DISTRIBUTION:
-  Summarization:
-    -> Llama-3.2-1B on RTX_4090_I: 85.0% (85 q/hr)
-    -> Llama-3.2-3B on A100_40GB_: 15.0% (15 q/hr)
-  Code_Gen:
-    -> Llama-3.1-8B on H100_80GB_: 100.0% (90 q/hr)
-  ...
-```
 
 ### Sensitivity Analysis Results
 
@@ -186,7 +149,9 @@ Results are stored in `sensitivity_results/` with visualizations:
 
 <p align="center">
   <img src="plot/delay_error_cost.jpg" alt="Delay-Error-Cost Tradeoff" width="45%">
-  <img src="plot/GPU_rental_error_gpu.jpg" alt="GPU Rental vs Error" width="45%">
+  <img src="plot/budget_rental_cost.jpg" alt="Budget-Rental cost Tradeoff" width="45%">
+  <img src="plot/memory_error_plot.jpg" alt="Memory-error cost Tradeoff" width="45%">
+  <img src="plot/gpu_error_cost.jpg" alt="GPU rental-error cost Tradeoff" width="45%">
 </p>
 
 ---
@@ -206,29 +171,17 @@ ICC conference/
 │   ├── sensitivity_analysis_gpu_cost_error.py
 │   └── sensitivity_analysis_memory_error.py
 │
-├── 📊 Visualization Tools
-│   ├── plot_delay_error.py
-│   ├── visualize_tp_choice.py
-│   └── error_sensitivity_visualization.py
-│
 ├── 📓 Notebooks
 │   └── Experiment_RO.ipynb                   Robust vs Deterministic
 │
-├── 📁 Results (230+ files)
-│   ├── sensitivity_results/*.csv             Numerical results
-│   ├── sensitivity_results/*.png             Visualizations
+├── 📁 Results
 │   └── plot/*.jpg                            Publication figures
 │
 └── 📄 Documentation
     ├── README.md                             This file
     ├── PROJECT_STRUCTURE.md                  File organization & flows
     ├── DATA_SOURCES_AND_PARAMETERS.md        Parameter generation details
-    ├── ICC_submission.pdf                    Conference paper
-    └── ICC_conference.pptx                   Presentation slides
 ```
-
-See **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** for detailed dependency graphs and execution flows.
-
 ---
 
 ## 🎓 Model Details
@@ -365,7 +318,7 @@ data.Delta_i *= 1.5  # +50% delay tolerance
 data.epsilon *= 1.2  # +20% error tolerance
 
 # Scale budget
-data.delta = 8000  # Increase from 5000
+data.delta = 5000
 ```
 
 ### Solver Settings
@@ -387,8 +340,4 @@ This project is for **academic research purposes** only.
 
 <p align="center">
   <b>⭐ Star this repository if you find it helpful!</b>
-</p>
-
-<p align="center">
-  Made with ❤️ for the LLM optimization research community
 </p>
