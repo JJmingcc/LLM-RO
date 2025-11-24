@@ -1,10 +1,7 @@
 # Robust LLM Inference Workload Allocation
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-Academic-green.svg)](LICENSE)
 [![Gurobi](https://img.shields.io/badge/Gurobi-Required-red.svg)](https://www.gurobi.com/)
-[![Conference](https://img.shields.io/badge/Conference-ICC%202025-orange.svg)](ICC_submission.pdf)
-
 > **Latency-aware Robust LLM Inference Workload Allocation under Precision-Dependent Uncertainty**
 
 Efficient optimization framework for allocating LLM inference workloads across heterogeneous GPU resources while handling uncertainty in processing delays and error rates. Supports **tensor parallelism**, **decision-dependent uncertainty**, and **multi-precision GPU configurations**.
@@ -28,10 +25,6 @@ Efficient optimization framework for allocating LLM inference workloads across h
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/ICC-conference.git
-cd ICC-conference
-
 # Install dependencies
 pip install -r requirements.txt
 ```
@@ -219,7 +212,6 @@ ICC conference/
 │   └── error_sensitivity_visualization.py
 │
 ├── 📓 Notebooks
-│   ├── Experiment.ipynb                      Interactive experiments
 │   └── Experiment_RO.ipynb                   Robust vs Deterministic
 │
 ├── 📁 Results (230+ files)
@@ -385,72 +377,13 @@ solution = optimizer.build_and_solve_optimization_problem(
 )
 ```
 
----
-
-## 📖 Citation
-
-If you use this code in your research, please cite:
-
-```bibtex
-@inproceedings{your2025latency,
-  title={Latency-aware Robust LLM Inference Workload Allocation under Precision-Dependent Uncertainty},
-  author={Your Name and Co-authors},
-  booktitle={IEEE International Conference on Communications (ICC)},
-  year={2025}
-}
-```
-
----
-
 ## 📄 License
 
 This project is for **academic research purposes** only.
 
 **Gurobi License**: Academic license required. For commercial use, obtain a commercial Gurobi license.
 
----
 
-## 🤝 Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📞 Contact
-
-For questions or collaborations:
-
-- **Email**: your.email@asu.edu
-- **Paper**: [ICC_submission.pdf](ICC_submission.pdf)
-- **Presentation**: [ICC_conference.pptx](ICC_conference.pptx)
-
----
-
-## 🙏 Acknowledgments
-
-- **Meta AI** for Llama model specifications
-- **NVIDIA** for GPU technical documentation
-- **vast.ai, Lambda Labs, RunPod** for GPU pricing data
-- **Gurobi Optimization** for academic licenses
-- Research supported by [Your Funding Source]
-
----
-
-## 📚 References
-
-1. Dettmers et al. "LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale" (2022)
-2. Frantar et al. "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers" (2023)
-3. Tay et al. "Efficient Transformers: A Survey" (2022)
-4. Patel et al. "Characterizing LLM Workloads in Production" (2024)
-5. Radford et al. "Learning Transferable Visual Models From Natural Language Supervision" (2021)
-
----
 
 <p align="center">
   <b>⭐ Star this repository if you find it helpful!</b>
