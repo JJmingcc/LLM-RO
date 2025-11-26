@@ -73,7 +73,6 @@ python sensitivity_analysis_memory_error.py
 
 | Document | Description |
 |----------|-------------|
-| **[Project Structure](PROJECT_STRUCTURE.md)** | Complete file organization, dependency graphs, execution flows |
 | **[Data Sources & Parameters](DATA_SOURCES_AND_PARAMETERS.md)** | Detailed parameter generation methods, data sources, validation |
 
 ---
