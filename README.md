@@ -75,8 +75,6 @@ python sensitivity_analysis_memory_error.py
 |----------|-------------|
 | **[Project Structure](PROJECT_STRUCTURE.md)** | Complete file organization, dependency graphs, execution flows |
 | **[Data Sources & Parameters](DATA_SOURCES_AND_PARAMETERS.md)** | Detailed parameter generation methods, data sources, validation |
-| **[Error Sensitivity Analysis](ERROR_SENSITIVITY_ANALYSIS.md)** | Error rate sensitivity study methodology and results |
-| **[Constraint Formulation](analyze_constraint_formulation.py)** | Mathematical constraint verification |
 
 ---
 
